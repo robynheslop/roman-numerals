@@ -6,10 +6,11 @@ const calculateIValues = number => {
     return I;
 }
 
-
 const generalRomanNumerals = (number) => {
     let romanNumerals = "";
-    if (number / 5 >= 1) {
+    if (number / 10 >= 1) {
+        romanNumerals += "X";
+    } else if (number / 5 >= 1) {
         romanNumerals += "V";
         romanNumerals += calculateIValues(number % 5)
     } else {
