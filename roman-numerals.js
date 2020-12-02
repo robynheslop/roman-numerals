@@ -1,5 +1,5 @@
 const totalIValues = number => {
-    let returnString = ''; 
+    let returnString = '';
     for (let i = 0; i < number; i++) {
         returnString += "I"
     }
@@ -22,10 +22,15 @@ const calculateLastDigit = number => {
 const generateRomanNumerals = (number) => {
     let romanNumerals = "";
     if (number / 10 >= 1) {
-        for (let i = 0; i < (Math.floor(number / 10)); i++) { 
-            romanNumerals += "X";
+        if (Math.floor(number / 10) === 4) {
+            romanNumerals += "XL"
+            romanNumerals += calculateLastDigit(number % 10)
+        } else {
+            for (let i = 0; i < (Math.floor(number / 10)); i++) {
+                romanNumerals += "X";
+            }
+            romanNumerals += calculateLastDigit(number % 10)
         }
-        romanNumerals += calculateLastDigit(number % 10)
     } else {
         romanNumerals += calculateLastDigit(number);
     }
