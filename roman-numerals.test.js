@@ -97,4 +97,16 @@ describe("generator receives numbers and returns the roman numeral of that numbe
     it("receives 4000, returns error", () => {
         expect(romanNumerals(4000)).toBe("Error: Please enter a number between 1 and 3999");
     });
+    it("receives 1000, returns M", () => {
+        expect(romanNumerals(1000)).toBe("M");
+    });
+    it("receives 1123, returns MCXXIII", () => {
+        expect(romanNumerals(1123)).toBe("MCXXIII");
+    });
+    it("receives 1200, returns MCC", () => {
+        expect(romanNumerals(1200)).toBe("MCC");
+    });
+    it("receives 3000, returns MMM", () => {
+        expect(romanNumerals(3000)).toBe("MMM");
+    });
 });

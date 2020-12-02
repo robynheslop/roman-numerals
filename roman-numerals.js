@@ -38,6 +38,8 @@ const calculateDigit = (number, digit) => {
                 return digit100String ;
             }
             return loopOverCharacter(number, "C");
+        case 1000:
+            return loopOverCharacter(number, "M");
     }
 
 }
@@ -45,7 +47,12 @@ const calculateDigit = (number, digit) => {
 const generateRomanNumerals = (number) => {
     if (number < 1 || number > 3999) return "Error: Please enter a number between 1 and 3999";
     let romanNumerals = "";
-    if (number / 100 >= 1) {
+    if (number / 1000 >= 1) {   
+        romanNumerals += calculateDigit(Math.floor(number / 1000), 1000);
+        romanNumerals += calculateDigit(Math.floor((number % 1000) / 100), 100);
+        romanNumerals += calculateDigit(Math.floor(((number % 1000) % 100) / 10), 10);
+        romanNumerals += calculateDigit((((number % 1000) % 100) % 10), 1)
+    } else if (number / 100 >= 1) {
         romanNumerals += calculateDigit(Math.floor(number / 100), 100);
         romanNumerals += calculateDigit(Math.floor((number % 100) / 10), 10);
         romanNumerals += calculateDigit(((number % 100) % 10), 1)
