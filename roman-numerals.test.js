@@ -43,4 +43,13 @@ describe("generator receives numbers and returns the roman numeral of that numbe
     it("receives 29, returns XXIX", () => {
         expect(romanNumerals(29)).toBe("XXIX");
     });
+    it("receives 31, returns XXXI", () => {
+        expect(romanNumerals(31)).toBe("XXXI");
+    });
+    it("receives 36, returns XXXVI", () => {
+        expect(romanNumerals(36)).toBe("XXXVI");
+    });
+    it("receives 38, returns XXXVIII", () => {
+        expect(romanNumerals(38)).toBe("XXXVIII");
+    });
 });
