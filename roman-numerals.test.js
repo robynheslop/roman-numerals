@@ -85,4 +85,10 @@ describe("generator receives numbers and returns the roman numeral of that numbe
     it("receives 226, returns CCXXV", () => {
         expect(romanNumerals(226)).toBe("CCXXVI");
     });
+    it("receives 350, returns CCCL", () => {
+        expect(romanNumerals(350)).toBe("CCCL");
+    });
+    it("receives 999, returns CMXCIX", () => {
+        expect(romanNumerals(999)).toBe("CMXCIX");
+    });
 });

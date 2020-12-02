@@ -14,6 +14,14 @@ const totalXValues = number => {
     return returnString;
 }
 
+const totalCValues = number => {
+    let returnString = '';
+    for (let i = 0; i < number; i++) {
+        returnString += "C"
+    }
+    return returnString;
+}
+
 const calculateLastDigit = number => {
     if (number === 4) return "IV";
     if (number === 9) return "IX";
@@ -38,10 +46,22 @@ const calculateSecondLastDigit = number => {
     return totalXValues(number);
 }
 
+const calculateThirdLastDigit = number => {
+    if (number === 4) return "CD";
+    if (number === 9) return "CM";
+    let returnString = "";
+    if (number >= 5) {
+        returnString += "D";
+        returnString += totalCValues(number % 5);
+        return returnString;
+    }
+    return totalCValues(number);
+}
+
 const generateRomanNumerals = (number) => {
     let romanNumerals = "";
     if (number / 100 >= 1) {
-        romanNumerals += "C";
+        romanNumerals += calculateThirdLastDigit(Math.floor(number / 100));
         romanNumerals += calculateSecondLastDigit(Math.floor((number % 100) / 10));
         romanNumerals += calculateLastDigit((number % 100) % 10)
     } else if (number / 10 >= 1) {
