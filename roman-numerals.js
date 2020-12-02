@@ -1,20 +1,32 @@
-const calculateIValues = number => {
-    let I = "";
-    for (let i = 0; i < number; i++) {
-        I += "I"
+const calculateLastDigit = number => {
+    if (number === 4) {
+        return "IV"
     }
-    return I;
+    if (number === 9) {
+        return "IX"
+    }
+    let returnString = "";
+    if (number >= 5) {
+        returnString += "V"
+        for (let i = 0; i < (number % 5); i++) {
+            returnString += "I"
+        }
+        return returnString;
+    }
+    for (let i = 0; i < number; i++) {
+        returnString += "I"
+    }
+    return returnString;
 }
 
 const generalRomanNumerals = (number) => {
+
     let romanNumerals = "";
     if (number / 10 >= 1) {
         romanNumerals += "X";
-    } else if (number / 5 >= 1) {
-        romanNumerals += "V";
-        romanNumerals += calculateIValues(number % 5)
+        romanNumerals += calculateLastDigit(number % 10)
     } else {
-        romanNumerals += calculateIValues(number)
+        romanNumerals += calculateLastDigit(number);
     }
 
     return romanNumerals;

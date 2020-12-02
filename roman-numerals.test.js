@@ -22,4 +22,13 @@ describe("generator receives numbers and returns the roman numeral of that numbe
     it("receives 10, returns X", () => {
         expect(romanNumerals(10)).toBe("X");
     });
+    it("receives 13, returns X", () => {
+        expect(romanNumerals(13)).toBe("XIII");
+    });
+    it("receives 4, returns IV", () => {
+        expect(romanNumerals(4)).toBe("IV");
+    });
+    it("receives 9, returns IX", () => {
+        expect(romanNumerals(9)).toBe("IX");
+    });
 });
