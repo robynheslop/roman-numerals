@@ -43,6 +43,7 @@ const calculateDigit = (number, digit) => {
 }
 
 const generateRomanNumerals = (number) => {
+    if (number < 1 || number > 3999) return "Error: Please enter a number between 1 and 3999";
     let romanNumerals = "";
     if (number / 100 >= 1) {
         romanNumerals += calculateDigit(Math.floor(number / 100), 100);
