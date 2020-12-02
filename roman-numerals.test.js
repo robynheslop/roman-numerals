@@ -61,4 +61,28 @@ describe("generator receives numbers and returns the roman numeral of that numbe
     it("receives 50, returns L", () => {
         expect(romanNumerals(50)).toBe("L");
     });
+    it("receives 60, returns LX", () => {
+        expect(romanNumerals(60)).toBe("LX");
+    });
+    it("receives 80, returns LXXX", () => {
+        expect(romanNumerals(80)).toBe("LXXX");
+    });
+    it("receives 90, returns XC", () => {
+        expect(romanNumerals(90)).toBe("XC");
+    });
+    it("receives 95, returns XCV", () => {
+        expect(romanNumerals(95)).toBe("XCV");
+    });
+    it("receives 99, returns XCIX", () => {
+        expect(romanNumerals(99)).toBe("XCIX");
+    });
+    it("receives 100, returns C", () => {
+        expect(romanNumerals(100)).toBe("C");
+    });
+    it("receives 116, returns CXV", () => {
+        expect(romanNumerals(116)).toBe("CXVI");
+    });
+    it("receives 226, returns CCXXV", () => {
+        expect(romanNumerals(226)).toBe("CCXXVI");
+    });
 });

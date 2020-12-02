@@ -23,18 +23,28 @@ const calculateLastDigit = number => {
         returnString += totalIValues(number % 5);
         return returnString;
     }
-    returnString += totalIValues(number);
-    return returnString;
+    return totalIValues(number);
 }
+
 const calculateSecondLastDigit = number => {
     if (number === 4) return "XL";
-    if (number === 5) return "L";
+    if (number === 9) return "XC";
+    let returnString = "";
+    if (number >= 5) {
+        returnString += "L";
+        returnString += totalXValues(number % 5);
+        return returnString;
+    }
     return totalXValues(number);
 }
 
 const generateRomanNumerals = (number) => {
     let romanNumerals = "";
-    if (number / 10 >= 1) {
+    if (number / 100 >= 1) {
+        romanNumerals += "C";
+        romanNumerals += calculateSecondLastDigit(Math.floor((number % 100) / 10));
+        romanNumerals += calculateLastDigit((number % 100) % 10)
+    } else if (number / 10 >= 1) {
         romanNumerals += calculateSecondLastDigit(Math.floor(number / 10))
         romanNumerals += calculateLastDigit(number % 10)
     } else {
