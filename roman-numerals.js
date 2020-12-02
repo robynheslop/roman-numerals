@@ -6,6 +6,14 @@ const totalIValues = number => {
     return returnString;
 }
 
+const totalXValues = number => {
+    let returnString = '';
+    for (let i = 0; i < number; i++) {
+        returnString += "X"
+    }
+    return returnString;
+}
+
 const calculateLastDigit = number => {
     if (number === 4) return "IV";
     if (number === 9) return "IX";
@@ -18,19 +26,17 @@ const calculateLastDigit = number => {
     returnString += totalIValues(number);
     return returnString;
 }
+const calculateSecondLastDigit = number => {
+    if (number === 4) return "XL";
+    if (number === 5) return "L";
+    return totalXValues(number);
+}
 
 const generateRomanNumerals = (number) => {
     let romanNumerals = "";
     if (number / 10 >= 1) {
-        if (Math.floor(number / 10) === 4) {
-            romanNumerals += "XL"
-            romanNumerals += calculateLastDigit(number % 10)
-        } else {
-            for (let i = 0; i < (Math.floor(number / 10)); i++) {
-                romanNumerals += "X";
-            }
-            romanNumerals += calculateLastDigit(number % 10)
-        }
+        romanNumerals += calculateSecondLastDigit(Math.floor(number / 10))
+        romanNumerals += calculateLastDigit(number % 10)
     } else {
         romanNumerals += calculateLastDigit(number);
     }

@@ -55,4 +55,10 @@ describe("generator receives numbers and returns the roman numeral of that numbe
     it("receives 40, returns XL", () => {
         expect(romanNumerals(40)).toBe("XL");
     });
+    it("receives 42, returns XLII", () => {
+        expect(romanNumerals(42)).toBe("XLII");
+    });
+    it("receives 50, returns L", () => {
+        expect(romanNumerals(50)).toBe("L");
+    });
 });
